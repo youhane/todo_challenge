@@ -1,7 +1,12 @@
+import Footer from "./components/Footer";
+import TodoForm from "./components/TodoForm";
+
 function App() {
   return (
-    <div className="App text-3xl font-bold underline text-red-600">
-      <h1>Hello</h1>
+    <div>
+      <h1 className="font-ralewayBold font-black text-center text-3xl my-3">#todo</h1>
+      <TodoForm />
+      <Footer />
     </div>
   );
 }
