@@ -28,7 +28,7 @@ export default function Header({ setshowingComplete, setShowActiveOnly }) {
     return <div className='border-b w-2/5 mx-auto text-center flex justify-around'>
         <div>
             <button className='font-bold' onClick={showAll}>All</button>
-            {!showActive && !showCompleted && <div className='bg-blue-500 h-1 w-20 rounded-t-xl mt-2'>&nbsp;</div>}
+            {!showActive && !showCompleted && <div className='bg-blue-500 h-1 w-20 rounded-t-xl mt-2 '>&nbsp;</div>}
         </div>
         <div>
             <button className='font-bold' onClick={showActiveOnly}>Active</button>

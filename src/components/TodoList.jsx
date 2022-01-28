@@ -11,8 +11,17 @@ export default function TodoList({ showingComplete, showActiveOnly, setTodos, to
         setTodos(updatedTodos)
     }
 
+    const removeTodo = (id) => {
+        const updatedTodos = [...todos].filter(todo => todo.id !== id)
+        setTodos(updatedTodos)
+    }
+
+    const removeAll = () =>{
+        const updatedTodos = [...todos].filter(todo => todo.complete === false)
+        setTodos(updatedTodos)
+    }
+
     return <div className='w-2/5 mx-auto'>
-        {showActiveOnly}
         {showingComplete ? todos.map((todo) => {
             return todo.complete === true && <Todos
                 showingComplete={showingComplete}
@@ -21,6 +30,7 @@ export default function TodoList({ showingComplete, showActiveOnly, setTodos, to
                 key={todo.id}
                 id={todo.id}
                 completeTodo={completeTodo}
+                removeTodo={removeTodo}
             />
         }) : showActiveOnly ? todos.map((todo) => {
             return todo.complete === false && <Todos
@@ -30,6 +40,7 @@ export default function TodoList({ showingComplete, showActiveOnly, setTodos, to
                 key={todo.id}
                 id={todo.id}
                 completeTodo={completeTodo}
+                removeTodo={removeTodo}
             />
         }) : todos.map((todo) => {
             return <Todos
@@ -39,10 +50,11 @@ export default function TodoList({ showingComplete, showActiveOnly, setTodos, to
                 key={todo.id}
                 id={todo.id}
                 completeTodo={completeTodo}
+                removeTodo={removeTodo}
             />
         })}
         {
-            showingComplete && <button className='flex items-center ml-auto bg-red-600 text-white font-medium rounded-md p-3 hover:bg-red-500'><FiTrash className='mr-1' stroke-width='2' />delete all</button>
+            showingComplete && <button className='flex items-center ml-auto bg-red-600 text-white font-medium rounded-md p-3 my-6 hover:bg-red-500 ease-in-out duration-100' onClick={removeAll}><FiTrash className='mr-1' stroke-width='2' />delete all</button>
         }
     </div>
 }

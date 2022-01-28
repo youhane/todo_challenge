@@ -23,7 +23,7 @@ export default function TodoForm({ addTodo }) {
         />
         <button
             type="submit"
-            className='bg-blue-500 text-white rounded-xl mx-2 p-3 px-8'
+            className='bg-blue-500 text-white rounded-xl mx-2 p-3 px-8 hover:bg-blue-400 ease-in-out duration-100'
         >
             Add
         </button>
