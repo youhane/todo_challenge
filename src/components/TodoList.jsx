@@ -1,19 +1,32 @@
-import React, { useState } from 'react';
+import Todos from './Todos';
 import { FiTrash } from 'react-icons/fi'
 
-export default function TodoList({ showingComplete }) {
-    const [checked, setChecked] = useState(false);
+const DUMMY_DATA = [
+    {
+        text: "Eat Lunch",
+        complete: false
+    },
+    {
+        text: "Eat breakfast",
+        complete: true
+    },
+    {
+        text: "Eat dinner",
+        complete: false
+    },
+    {
+        text: "Eat Again",
+        complete: true
+    },
+]
 
-    return <div className='flex items-center w-2/5 mx-auto my-4 font-bold justify-between'>
-        <input type="checkbox" className='w-4 h-4 mr-3' onClick={() => setChecked(!checked)} />
+export default function TodoList({ showingComplete }) {
+    return <div className='w-2/5 mx-auto'>
+        {DUMMY_DATA.map((todo) => {
+            return <Todos showingComplete={showingComplete} text={todo.text} complete={todo.complete} />
+        })}
         {
-            !checked ? <p className='mr-auto'>Lorem ipsum et something</p> : <s className='mr-auto'>Lorem ipsum et something</s>
-        }
-        {
-            showingComplete && <button className='opacity-25 hover:opacity-75'><FiTrash /></button>
-        }
-        {
-            showingComplete && <button className='flex items-center'><FiTrash />delete all</button>
+            showingComplete && <button className='flex items-center ml-auto bg-red-600 text-white font-medium rounded-md p-3 hover:bg-red-500'><FiTrash className='mr-1' stroke-width='2' />delete all</button>
         }
     </div>
 }
