@@ -5,7 +5,7 @@ export default function TodoForm() {
         <input
             type="text"
             placeholder='add details'
-            className='border-2 rounded-xl pl-2 py-3 w-1/4'
+            className='border-2 rounded-xl pl-2 py-3 w-1/3'
         />
         <button
             type="submit"

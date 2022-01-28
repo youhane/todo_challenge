@@ -5,3 +5,4 @@ export default function Footer() {
         created by <a href='https://github.com/youhane' className='underline font-bold' target="_blank" rel="noreferrer"> youhane </a>- devChallenges.io
     </footer>
 }
+ 
