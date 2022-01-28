@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function TodoForm() {
-    return <form className='text-center'>
+    return <form className='text-center my-3'>
         <input
             type="text"
             placeholder='add details'
