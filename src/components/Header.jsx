@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function Header({ setshowingComplete }) {
+export default function Header({ setshowingComplete, setShowActiveOnly }) {
     const [showActive, setShowActive] = useState(false);
     const [showCompleted, setShowCompleted] = useState(false);
 
@@ -8,18 +8,21 @@ export default function Header({ setshowingComplete }) {
         setShowActive(false)
         setShowCompleted(false)
         setshowingComplete(false)
+        setShowActiveOnly(false)
     }
 
     const showActiveOnly = () => {
         setShowActive(true)
         setShowCompleted(false)
         setshowingComplete(false)
+        setShowActiveOnly(true)
     }
 
     const showCompleteOnly = () => {
         setShowActive(false)
         setShowCompleted(true)
         setshowingComplete(true)
+        setShowActiveOnly(false)
     }
 
     return <div className='border-b w-2/5 mx-auto text-center flex justify-around'>

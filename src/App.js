@@ -7,6 +7,7 @@ import TodoList from "./components/TodoList";
 function App() {
   const [todos, setTodos] = useState([]);
   const [showingComplete, setshowingComplete] = useState(false);
+  const [showActiveOnly, setShowActiveOnly] = useState(false);
 
   useEffect(() => {
     const tempTodos = localStorage.getItem('todos')
@@ -28,9 +29,9 @@ function App() {
   return (
     <div className="font-montserrat">
       <h1 className="font-ralewayBold font-black text-center text-3xl my-3">#todo</h1>
-      <Header setshowingComplete={setshowingComplete} />
+      <Header setshowingComplete={setshowingComplete} setShowActiveOnly={setShowActiveOnly} />
       {showingComplete ? '' : <TodoForm addTodo={addTodo} />}
-      <TodoList showingComplete={showingComplete} todos={todos} />
+      <TodoList showingComplete={showingComplete} showActiveOnly={showActiveOnly} setTodos={setTodos} todos={todos} />
       <Footer />
     </div>
   );
